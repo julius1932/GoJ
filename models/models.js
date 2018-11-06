@@ -1,37 +1,14 @@
 const Sequelize = require('sequelize');
 
-const User = sequelize.define('user', {
-    fname: {
-        Sequelize.STRING
-        allowNull: false,
-    },
-    sname: {
-        Sequelize.STRING
-        allowNull: false,
-    },
-    gender: {
-        Sequelize.STRING
-        allowNull: false,
-    },
-    email: {
-        Sequelize.TEXT,
-        allowNull: false,
-        unique: true,
-        validate: {
-            isEmail: true
-        }
-    },
+const INVOICE = require('./invoice');
+const KLASS = require('./klass');
+const LEARNER = require('./learner');
+const USER= require('./user');
+const PAYMENT = require('./payment');
 
-});
-const Klass = sequelize.define('klass', {
-    level: {
-        Sequelize.INTEGER,
-        allowNull: false,
-        unique: 'compositeIndex'
-    },
-    division: {
-        Sequelize.TEXT,
-        allowNull: false,
-        unique: 'compositeIndex'
-    }
-});
+var arrModels=[USER,LEARNER,LEARNER,INVOICE,PAYMENT];
+
+
+arrModels.forEach(function (model){
+    console.log(model);
+})
