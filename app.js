@@ -21,11 +21,13 @@ app.use(express.static('public'))
 app.get("/", function(req, res) {
     res.sendFile(__dirname + '/index.html');
 });
-
+app.get("/pp", function(req, res) {
+    res.sendFile(__dirname + '/password.html');
+});
 app.post('/login', function(req, res) {
    var username = req.body.username;
    var password = req.body.password;
-   res.jsonp({});
+   res.jsonp({pp:"loged"});
 });
 
 app.post('/s3', function(req, res) {

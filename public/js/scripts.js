@@ -1,9 +1,10 @@
-$(document).ready(function(){
-    
-    $(".login").submit(function(event) {
+$(document).ready(function() {
+
+    $(".log").submit(function(event) {
         event.preventDefault();
         Adapter.save($(this).serialize(), '/login', function(data) {
-    
+            alert(data.pp);
+            window.location.href="/pp";
         })
 
     });
@@ -31,7 +32,7 @@ $(document).ready(function(){
     });
     $('.publ').submit(function(event) {
         event.preventDefault();
-        Adapter.save($(this).serialize(), '/s3', function(err,data) {
+        Adapter.save($(this).serialize(), '/s3', function(err, data) {
             closeForm("publ");
         });
 
@@ -47,7 +48,7 @@ $(document).ready(function(){
         });
     });
 
-     /*var publishbtn = document.querySelector('.btnPublish');
+    /*var publishbtn = document.querySelector('.btnPublish');
     
     publishbtn.addEventListener("click",function() {
         publishbtn.innerHTML = "";
