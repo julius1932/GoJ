@@ -202,7 +202,7 @@ input, textarea, keygen, select, button, meter, progress {
 }
 
 .need-help {
-    float: right;
+    float: left;
     text-align: right;
     color: #427fed;
     font-weight:bold;
@@ -238,47 +238,40 @@ input, textarea, keygen, select, button, meter, progress {
     margin-top:20px;
 }
 
-.gmail-footer
-{
-  
-  height:50px;
-  margin-top:100px;
+.navbar-nav {
+	color: #555;
+    font-size: 14px;
+    text-align: left;
+    font-family: Arial,sans-serif;
+    margin-top:20px;
+	
+	}
+.search-container {
+	font-size: 24px;
+    text-align: right;
+    font-family: Arial,sans-serif;
+    margin-top:20px;
+}
+.navbar-default {
+    background-color:gray;
+    color:blue;
+    text-align:left;
+    padding:5px;
+	font-color:black;
+	height:20px%;
+}
+#wrapper {	
+    color:red;
+    text-align:left;
+    padding:15px;
+	width:25%;
+	
+	width: 250px;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    color: #fff;
+    transition: all 0.3s;
 }
 
-#right-footer
-{
-  float:right;
-  margin-right:30px;
-
-}
-#right-footer img
-{
-  
-  margin-top:10px;
-
-}
-#left-footer ul {
-    float: left;
-    max-width: 80%;
-    min-height: 16px;
-    padding: 0 40px;
-    color:black;
-}
-#left-footer {
-    font-size: 0.85em;
-    line-height: 0;
-    white-space: nowrap;
-    float: left;
-    text-decoration: none;
-}
-#left-footer a
-{
-  text-decoration: none;
-  color: #727272;
-
-}
-#left-footer ul li {
-    color:black;
-    display: inline;
-    padding: 0 1.5em 0 0;
-}
