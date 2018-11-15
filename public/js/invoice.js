@@ -1,12 +1,13 @@
-class Klass {
-    constructor(_id,level,division) {
-        this.level=level;
-        this.division=division;
+class Invoice {
+    constructor(_id,paymentProgress,learnerId,feesSetUpId) {
+        //paymentProgress:learnerId:feesSetUpId
+        this.paymentProgress=paymentProgress;
+        this.learnerId=learnerId;
         this._id = _id;
         this._view = `<tr id ="${this._id}" >
                     <td class="question clickableAwesomeFont" title='${this.qn}' onclick="openForm('addQnForm','${this._id}','id')" > ${this.qn}</td>
-                    <td class="question "> ${this.level}</td>
-                    <td class="question "> ${this.division}</td>
+                    <td class="question "> ${this.paymentProgress}</td>
+                    <td class="question "> ${this.learnerId}</td>
                     <td title='edit user'>
                     <span class="edit clickableAwesomeFont"  onclick="openForm('addQnForm','${this._id}','id')">
                     <img class="svg edit" src="icons/baseline-edit-24px.svg"/>

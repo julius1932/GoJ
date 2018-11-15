@@ -75,6 +75,8 @@
     <script src="js/klasslist.js"></script>
     <script src="js/feessetup.js"></script>
     <script src="js/feessetuplist.js"></script>
+    <script src="js/invoice.js"></script>
+    <script src="js/invoicelist.js"></script>
     <!-- Menu Toggle Script -->
     <script>
     $("#menu-toggle").click(function(e) {
@@ -88,17 +90,21 @@
                 var userlist = new UsersList();
                 userlist.fillData();
                 break;
-                case 'learners':
+            case 'learners':
                 var learnerlist = new LearnersList();
                 learnerlist.fillData();
                 break;
-                case 'classes':
+            case 'classes':
                 var klasslist = new KlassesList();
                 klasslist.fillData();
                 break;
-               case  'fees set Up':
-                var fees = new  FeesSetUpList();
+            case 'fees set Up':
+                var fees = new FeesSetUpList();
                 fees.fillData();
+                break;
+            case 'invoices':
+                var invo = new InvoicesList();
+                invo.fillData();
                 break;
         }
         /*alert(menu);

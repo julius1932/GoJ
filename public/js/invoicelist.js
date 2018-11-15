@@ -1,4 +1,4 @@
-class KlassesList {
+class InvoicesList {
 
     constructor() {  
 
@@ -25,21 +25,21 @@ class KlassesList {
     fillData() {
         //document.getElementsByClassName("header-title")[0].innerHTML = this.qnire;
         var rest = "";
-        Adapter.read('/klass/klass', function(klasz) {
+        Adapter.read('/invoice/invoice', function(invos) {
             ///alert("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
-            for (var i = 0; i < klasz.length; i++) {
-                var klas = klasz[i];
-                if (klas.level) {
-                    var klas_view = new Klass(klas._id,klas.level,klass.division);
-                    rest += klas_view.getView();
+            for (var i = 0; i < invos.length; i++) {
+                var invo = invos[i];
+                if (invo.learnerId) {
+                    var invo_view = new Invoice(invo._id,invo.paymentProgress,invo.learnerId,invo.feesSetUpId);
+                    rest += invo_view.getView();
                     //alert(addRow("question", "id"));
                 }
 
             }
-             var klas_view = new Klass('klas._id','klas.level','klass.division');
-                    rest += klas_view.getView();
-                    klas_view = new Klass('klas._id','klas.level','klass.division');
-                    rest += klas_view.getView();
+             var invo_view = new Invoice('invo._id','invo.paymentProgress','invo.learnerId','invo.feesSetUpId');
+                    rest += invo_view.getView();
+                    invo_view = new Invoice('invo._id','invo.paymentProgress','invo.learnerId','invo.feesSetUpId');
+                    rest += invo_view.getView();
             var table = document.getElementsByClassName("questions");
             table[0].innerHTML = "";
 
