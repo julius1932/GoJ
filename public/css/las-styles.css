@@ -1,0 +1,7 @@
+.clickable {
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+

@@ -17,8 +17,14 @@ sequelize
     });
 
 const USER = sequelize.define('user', {
-    firstName: { type: Sequelize.STRING },
-    lastName: { type: Sequelize.STRING }
+    id: { type: Sequelize.UUID, allowNull: false, primaryKey: true },
+    fname: { type: Sequelize.STRING ,allowNull: false },
+    sname: { type: Sequelize.STRING ,allowNull: false },
+    pass:   { type: Sequelize.STRING ,allowNull: false },
+    gender: { allowNull: false, type: Sequelize.STRING },
+    email: { type: Sequelize.TEXT, allowNull: false, validate: { isEmail: true } },
+    phone: { type: Sequelize.STRING, allowNull: false },
+    role: { allowNull: false, type: Sequelize.STRING },
 });
 const KLASS = sequelize.define('klass', {
     id: { type: Sequelize.UUID, allowNull: false, primaryKey: true },
@@ -42,6 +48,7 @@ const FEESSETUP = sequelize.define('feesSetUp', {
     crateria: { type: Sequelize.STRING, allowNull: false }, //if subject bassed
     whoShouldPay: { type: Sequelize.ARRAY(Sequelize.TEXT), allowNull: false },
     accountType: { type: Sequelize.STRING, allowNull: false },
+    
 });
 const INVOICE = sequelize.define('invoice', {
     id: { type: Sequelize.UUID, allowNull: false, primaryKey: true },
@@ -119,8 +126,8 @@ const _DB = {
 }
 /*_DB.createModel("USER",{firstName:"lastborn",lastName:"Julius"},function(result){
     console.log(result);
-});*/
+});
 _DB.findModelAll("USER",function(results){
     console.log(results);
-});
+});*/
 module.exports = _DB;

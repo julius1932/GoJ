@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <link href="css/las-styles.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-header">
+        <h1>
+      GoJ <small>Cherutombo high  school fees , levy management app</small>
+   </h1>
+    </div>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <span class='clickable' >GoJ</span>
+                </li>
+                <li>
+                    <span class='clickable' onclick="sidebarclicked('users')" >Users</span>
+                </li>
+                <li>
+                    <span class='clickable' onclick="sidebarclicked('learners')">Learners</span>
+                </li>
+                <li>
+                    <span class='clickable' onclick="sidebarclicked('classes')">Classes</span>
+                </li>
+                <li>
+                    <span class='clickable' onclick="sidebarclicked('fees set Up')">Fees Set Up</span>
+                </li>
+                <li>
+                    <span class='clickable' onclick="sidebarclicked('invoices')">Invoices</span>
+                </li>
+                <li>
+                    <span class='clickable' onclick="sidebarclicked('payments')">Payments</span>
+                </li>
+                <li>
+                    <span class='clickable'>Queries</span>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>Simple Sidebar</h1>
+                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
+                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+    <!-- /#wrapper -->
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/ajaxAdapters.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/userslist.js"></script>
+    <script src="js/learner.js"></script>
+    <script src="js/learnerslist.js"></script>
+    <script src="js/klass.js"></script>
+    <script src="js/klasslist.js"></script>
+    <script src="js/feessetup.js"></script>
+    <script src="js/feessetuplist.js"></script>
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+
+    function sidebarclicked(menu) {
+        switch (menu) {
+            case 'users':
+                var userlist = new UsersList();
+                userlist.fillData();
+                break;
+                case 'learners':
+                var learnerlist = new LearnersList();
+                learnerlist.fillData();
+                break;
+                case 'classes':
+                var klasslist = new KlassesList();
+                klasslist.fillData();
+                break;
+               case  'fees set Up':
+                var fees = new  FeesSetUpList();
+                fees.fillData();
+                break;
+        }
+        /*alert(menu);
+        if (menu == 'users') {
+            var userlist = new UsersList();
+            userlist.fillData();
+        }*/
+    }
+    </script>
+</body>
+
+</html>
