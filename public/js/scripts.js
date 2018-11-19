@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    
     $(".log").submit(function(event) {
         event.preventDefault();
         Adapter.save($(this).serialize(), '/login', function(data) {
@@ -9,24 +9,16 @@ $(document).ready(function() {
 
     });
 
-    $('.addQnForm').submit(function(event) {
+    $('#add-users').submit(function(event) {
         event.preventDefault();
-        var question = document.getElementsByName("question")[0].value;
-        var answer = document.getElementsByName("answer")[0].value;
-        var subtext = document.getElementsByName("subtext")[0].value;
-        var format = document.getElementsByName("format")[0].value;
-        var qnId = document.getElementsByName("qnId")[0].value;
-        var qnName = document.getElementsByName("squestionnaire")[0].value;
-        var qry = `qnName=${qnName}&qn=${question}&answer=${answer}&format=${format}&subtext=${subtext}`;
-        if (qnId) {
-            qry += `&qnId=${qnId}`;
-        }
-        Adapter.save(qry, '/question', function(data) {
-            var questionnaire1 = new QuestionList(qnName);
-            questionnaire1.fillQns();
-            closeForm("addQnForm");
-            updateRowCount();
-            updateNumQns();
+        var qry =$(this).serialize()+"&pass="+document.getElementsByName("sname")[0].value
+        alert(qry);
+        Adapter.save(qry, '/user/user:fname:sname:gender:email:phone:role:pass', function(data) {
+            ///var questionnaire1 = new QuestionList(qnName);
+            //questionnaire1.fillQns();
+            closeForm("add-user");
+           // updateRowCount();
+            //updateNumQns();
         });
 
     });
@@ -112,4 +104,4 @@ function subheader() {
 
 }
 
-subheader();
+//subheader();

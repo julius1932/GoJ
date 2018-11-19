@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Simple Sidebar - Start Bootstrap Template</title>
+    <link href="css/popup.css" rel="stylesheet">
     <link href="css/las-styles.css" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -64,7 +65,7 @@
     <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.4.2.min.js"></script>
+    <script src="js/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="js/ajaxAdapters.js"></script>
     <script src="js/user.js"></script>
@@ -77,6 +78,7 @@
     <script src="js/feessetuplist.js"></script>
     <script src="js/invoice.js"></script>
     <script src="js/invoicelist.js"></script>
+    <script src="js/scripts.js"></script>
     <!-- Menu Toggle Script -->
     <script>
     $("#menu-toggle").click(function(e) {
@@ -112,8 +114,31 @@
             var userlist = new UsersList();
             userlist.fillData();
         }*/
+
+    }
+
+    function openForm(frmId) {
+        document.getElementById(frmId).style.display = "block";
+    }
+
+    function closeForm(frmId) {
+        document.getElementById(frmId).style.display = "none";
     }
     </script>
+    <div class="form-popup" id="add-user">
+                           <form  class="form-container" id ="add-users">
+                              <div class="popup-header"> New User</div>
+                              <input type="text" placeholder="Forename" name="fname"  equired> 
+                              <input type="text" placeholder="Surname" name="sname"  equired> 
+                              <input type="text" placeholder="Gender" name="gender"  equired> 
+
+                              <input type="text" placeholder="Email" name="email"  equired> 
+                              <input type="text" placeholder="Phone number" name="phone"  equired> 
+                              <input type="text" placeholder="role" name="role"  equired> 
+                              <button type="submit" class="btn" >SEND</button>
+                             <button type="button" class="btn cancel" onclick="closeForm('add-user')">CANCEL</button>
+                            </form>
+                          </div>`;
 </body>
 
 </html>

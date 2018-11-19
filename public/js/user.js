@@ -9,7 +9,6 @@ class User {
         this.role=role;
         this._id = _id;
         this._view = `<tr id ="${this._id}" >
-                    <td class="question clickableAwesomeFont" title='${this.qn}' onclick="openForm('addQnForm','${this._id}','id')" > ${this.qn}</td>
                     <td class="question "> ${this.sname}</td>
                     <td class="question "> ${this.fname}</td>
                     <td class="question "> ${this.gender}</td>

@@ -23,7 +23,7 @@ app.get("/user/:_id", function(req, res) {
         //do the loging in
     });
 });
-app.get("/user/:email:pass", function(req, res) {
+app.get("/user:email:pass", function(req, res) {
     var mail = req.body.email;
     var pass = req.body.pass;
     var qry = { email: email, pass: pass };
@@ -39,7 +39,8 @@ app.get("/user", function(req, res) {
          res.jsonp(results);
     });
 });
-app.post('/user/:fname:sname:gender:email:phone:role:pass',function(req, res) {
+
+app.post('/user:fname:sname:gender:email:phone:role:pass',function(req, res) {
     var fname = req.body.fname;
     var sname = req.body.sname;
     var gender = req.body.gender;
@@ -47,10 +48,10 @@ app.post('/user/:fname:sname:gender:email:phone:role:pass',function(req, res) {
     var phone = req.body.phone;
     var role = req.body.role;
     var pass = req.body.pass;
-    var data = { fname: fanme, sname: sname, gender: gender, email: email, phone: phone, role: role, pass: pass };
+    var data = {fname: fname, sname: sname, gender: gender, email: email, phone: phone, role: role, pass: pass };
     _DB.createModel("USER", data, function(result) {
         console.log(result);
-        res.jsonp(results);
+        res.jsonp(result);
     });
 });
 app.put('user/:_id,fname:sname:gender:email:phone:role:pass', function(req, res) {
@@ -66,7 +67,7 @@ app.put('user/:_id,fname:sname:gender:email:phone:role:pass', function(req, res)
     var qry = { id: _id };
     _DB.updateModel('USER', qry, data, function(result) {
         console.log(result);
-        res.jsonp(results);
+        res.jsonp(result);
     });
 });
 app.delete('user/:_id', function(req, res) {

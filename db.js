@@ -4,6 +4,7 @@ const sequelize = new Sequelize('mydb', 'postgres', 'root', {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases: false,
+    omitNull: true,
     pool: { max: 5, min: 0, acquire: 30000, idle: 10000 },
 });
 
@@ -17,10 +18,10 @@ sequelize
     });
 
 const USER = sequelize.define('user', {
-    id: { type: Sequelize.UUID, allowNull: false, primaryKey: true },
-    fname: { type: Sequelize.STRING ,allowNull: false },
-    sname: { type: Sequelize.STRING ,allowNull: false },
-    pass:   { type: Sequelize.STRING ,allowNull: false },
+    id: { type: Sequelize.INTEGER,  autoIncrement: true, allowNull: false, primaryKey: true },
+    fname: { type: Sequelize.STRING, allowNull: false },
+    sname: { type: Sequelize.STRING, allowNull: false },
+    pass: { type: Sequelize.STRING, allowNull: false },
     gender: { allowNull: false, type: Sequelize.STRING },
     email: { type: Sequelize.TEXT, allowNull: false, validate: { isEmail: true } },
     phone: { type: Sequelize.STRING, allowNull: false },
@@ -48,7 +49,7 @@ const FEESSETUP = sequelize.define('feesSetUp', {
     crateria: { type: Sequelize.STRING, allowNull: false }, //if subject bassed
     whoShouldPay: { type: Sequelize.ARRAY(Sequelize.TEXT), allowNull: false },
     accountType: { type: Sequelize.STRING, allowNull: false },
-    
+
 });
 const INVOICE = sequelize.define('invoice', {
     id: { type: Sequelize.UUID, allowNull: false, primaryKey: true },
@@ -74,7 +75,7 @@ sequelize.sync({ force: false }).then(() => {
 const MODELS = { USER: USER, KLASS: KLASS, LEARNER: LEARNER, INVOICE: INVOICE, PAYMENT: PAYMENT, FEESSETUP: FEESSETUP }
 
 function checkModel(model) {
-    
+
     return MODELS[model];
 }
 const _DB = {
@@ -85,6 +86,7 @@ const _DB = {
                 callback(result);
             });
         }
+
     },
     findModelAll: function(model, callback) {
         if (checkModel(model)) {
@@ -124,10 +126,11 @@ const _DB = {
         }
     }
 }
-/*_DB.createModel("USER",{firstName:"lastborn",lastName:"Julius"},function(result){
+//{ fname: fanme, sname: sname, gender: gender, email: email, phone: phone, role: role, pass: pass }
+_DB.createModel("USER",{fname:"lastborn",sname:"Julius",email:"klas@hnm.com",gender:"m",phone:"078564",role:"admi",pass:"opsdsgh"},function(result){
     console.log(result);
 });
 _DB.findModelAll("USER",function(results){
     console.log(results);
-});*/
+});
 module.exports = _DB;
